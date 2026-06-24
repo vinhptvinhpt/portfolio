@@ -8,8 +8,8 @@
   --color-text-muted: #8B9CB6;
   --color-border: #2D4166;
 
-  --font-heading: var(--font-playfair), serif;
-  --font-body: var(--font-inter), sans-serif;
+  --font-heading: var(--font-archivo), sans-serif;
+  --font-body: var(--font-space-grotesk), sans-serif;
 }
 
 html {
@@ -23,4 +23,35 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Global accessibility */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+*:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C9A84C, #F0C060);
+  z-index: 100;
+  transform-origin: left;
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
